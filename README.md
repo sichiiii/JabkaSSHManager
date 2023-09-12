@@ -8,5 +8,6 @@ Django SSH-manager for multiple server with command presets, imports and exports
 4. Implement export or import of ssh-connection with password encryption(decryption) if needed
 5. Import files or directories in one click
 6. Chrome extension (?)
+7. SQLite to Postgresql
 
 PM for ideas: cyberjabka.t.me
