@@ -11,3 +11,8 @@ Django SSH-manager for multiple server with command presets, imports and exports
 7. SQLite to Postgresql
 
 PM for ideas: cyberjabka.t.me
+
+Alternatives: 
+https://ssheasy.com/
+https://webssh.de/
+https://shellngn.com/ (paid)
