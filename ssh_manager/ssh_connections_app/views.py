@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+
 from .forms import LoginForm
 
 
@@ -21,6 +23,17 @@ def sign_in(request):
                 messages.success(request, f'Hi {username.title()}, welcome back!')
                 return redirect('posts')
 
-        # form is not valid or user is not authenticated
+        # either form not valid or user is not authenticated
         messages.error(request, f'Invalid username or password')
         return render(request, 'users/login.html', {'form': form})
+
+
+def sign_out(request):
+    logout(request)
+    messages.success(request, f'You have been logged out.')
+    return redirect('login')
+
+
+@login_required
+def create_ssh_connection(request):
+    pass
