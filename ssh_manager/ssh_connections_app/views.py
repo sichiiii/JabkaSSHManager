@@ -38,3 +38,28 @@ def sign_out(request):
 @login_required
 def create_ssh_connection(request):
     pass
+
+
+@login_required
+def edit_ssh_connection(request):
+    pass
+
+
+@login_required
+def delete_ssh_connection(request):
+    pass
+
+
+@login_required
+def connect_ssh_connection(request):
+    pass
+
+
+@login_required
+def export_ssh_connections(request):
+    pass
+
+
+@login_required
+def import_ssh_connections(request):
+    pass
