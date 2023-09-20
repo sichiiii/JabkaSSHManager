@@ -28,6 +28,7 @@ def sign_in(request):
         return render(request, 'users/login.html', {'form': form})
 
 
+@login_required
 def sign_out(request):
     logout(request)
     messages.success(request, f'You have been logged out.')
