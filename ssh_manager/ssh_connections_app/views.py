@@ -29,7 +29,6 @@ def sign_in(request):
 @login_required
 def sign_out(request):
     logout(request)
-    messages.success(request, f'You have been logged out.')
     return redirect('login')
 
 
