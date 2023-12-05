@@ -10,9 +10,9 @@ ENV TZ="Europe/Moscow"
 
 COPY requirements.txt requirements.txt
 
-RUN pip3 install -r requirements.txt
-RUN pip3 install pandas --no-build-isolation
+RUN pip3.12 install -r requirements.txt
 
 COPY . .
 WORKDIR /
-ENTRYPOINT ["python3.11", "/ssh_manager/manage.py", "runserver", "0.0.0.0:8000"]
+
+ENTRYPOINT ["python3.12", "/ssh_manager/manage.py", "runserver", "0.0.0.0:8000"]

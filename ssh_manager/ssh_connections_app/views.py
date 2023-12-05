@@ -9,7 +9,7 @@ from .forms import LoginForm
 def sign_in(request):
     if request.method == 'GET':
         form = LoginForm()
-        return render(request, 'users/login.html', {'form': form})
+        return render(request, 'sign_in.html', {'form': form})
 
     elif request.method == 'POST':
         form = LoginForm(request.POST)
@@ -23,9 +23,8 @@ def sign_in(request):
                 messages.success(request, f'Hi {username.title()}, welcome back!')
                 return redirect('posts')
 
-        # either form not valid or user is not authenticated
         messages.error(request, f'Invalid username or password')
-        return render(request, 'users/login.html', {'form': form})
+        return render(request, 'sign_in.html', {'form': form})
 
 
 @login_required
@@ -33,6 +32,10 @@ def sign_out(request):
     logout(request)
     messages.success(request, f'You have been logged out.')
     return redirect('login')
+
+
+def sign_up(request):
+    pass
 
 
 @login_required

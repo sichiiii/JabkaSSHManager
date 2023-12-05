@@ -9,6 +9,7 @@ services:
       - POSTGRES_DB=ssh_manager_db
       - POSTGRES_USER=jabka
       - POSTGRES_PASSWORD=test123
+      - POSTGRES_PORT=5432
     ports:  # for pgadmin
       - "5432:5432"
     expose:
@@ -22,6 +23,8 @@ services:
       - POSTGRES_DB=ssh_manager_db
       - POSTGRES_USER=jabka
       - POSTGRES_PASSWORD=test123
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
     depends_on:
       - db
 networks:
