@@ -20,8 +20,7 @@ def sign_in(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
-                messages.success(request, f'Hi {username.title()}, welcome back!')
-                return redirect('posts')
+                return 'True'
 
         messages.error(request, f'Invalid username or password')
         return render(request, 'sign_in.html', {'form': form})
