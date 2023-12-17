@@ -1,6 +1,34 @@
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
+<head>
+    <meta charset="UTF-8" />
+    <title>JABKA SSH</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/sign_in.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav>
+          <ul class="container">
+            <li><a href='#'>Home</a></li>
+            <li><a href='#'>About</a></li>
+            <li><a href='#'>Contact</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content-area">
+            <div class="inner-screen">
+                <form method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit" class="btn">SIGN IN</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+		<p>Made by CYBERJABKA</p>
+	</footer>
+</body>

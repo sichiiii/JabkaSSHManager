@@ -3,16 +3,16 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
-from .forms import LoginForm
+from .forms import SignInForm, SignUpForm
 
 
 def sign_in(request):
     if request.method == 'GET':
-        form = LoginForm()
+        form = SignInForm()
         return render(request, 'sign_in.html', {'form': form})
 
     elif request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = SignInForm(request.POST)
 
         if form.is_valid():
             username = form.cleaned_data['username']
@@ -34,11 +34,11 @@ def sign_out(request):
 
 def sign_up(request):
     if request.method == 'GET':
-        form = LoginForm()
+        form = SignUpForm()
         return render(request, 'sign_up.html', {'form': form})
 
     elif request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = SignUpForm(request.POST)
 
         if form.is_valid():
             username = form.cleaned_data['username']
@@ -49,6 +49,7 @@ def sign_up(request):
                 return 'True'
 
         return render(request, 'sign_up.html', {'form': form})
+
 
 @login_required
 def create_ssh_connection(request):
