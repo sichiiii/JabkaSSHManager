@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #ffffcc;
+    background-color: #edeff1;
 	margin: 0;
 	padding: 0;
     font-family: bebasneue-regular;
@@ -17,19 +17,18 @@ body {
     text-align: center;
     min-height: 100vh;
     color: white;
+    margin-top: 200px;
 }
-a {text-decoration: none;}
 
 .container {
 	margin: auto;
-	width: 1000px;
 }
 
-ul {
-	padding-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-	list-style: none;
+h2 {
+    display: inline-block;
+  	font-size: 36px;
+  	position: relative;
+    top: 4px;
 }
 
 nav {
@@ -58,47 +57,10 @@ nav > ul > li:hover > a {
   	border-bottom: 3px solid #444;
 }
 
-.mega-menu {
-	background: #eee;
-  	visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
-  	position: absolute;
-  	left: 0;
-  	width: 100%;
-    padding-bottom: 20px;
-}
-.mega-menu h3 {color: #444;}
-
-.mega-menu .container {
-    display: flex;
-}
-.mega-menu .item {
-	flex-grow: 1;
-    margin: 0 10px;
-}
-.mega-menu .item img {
-    width: 100%;
-}
-.mega-menu a {
-	border-bottom: 1px solid #ddd;
-  	color: #4ea3d8;
-  	display: block;
-  	padding: 10px 0;
-}
-.mega-menu a:hover {color: #0073b1;}
-
-
-.dropdown {position: static;}
-
-.dropdown:hover .mega-menu {
-    visibility: visible;
-    opacity: 1;
-}
 .form{
   width: 400px;
   height: 230px;
-  background: #edeff1;
+  background: #175798;
   margin: 0px auto;
   padding-top: 20px;
   border-radius: 10px;
@@ -157,31 +119,15 @@ a{
     font-size: 28px;
 }
 
+a:hover{
+    color: #0073b1;
+}
+
 label{
     color: #000000;
     font-size: 28px;
 }
 
-a:hover{
-    color: #0073b1;
-}
-
-
-::-webkit-input-placeholder {
-    color: gray;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-    color: gray;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-    color: gray;
-}
-
-:-ms-input-placeholder {
-    color: gray;
-}
 
 footer{
 	display: -webkit-box;
