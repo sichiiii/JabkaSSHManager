@@ -12,7 +12,7 @@
                 <li><h2 href="">CYB3RJ4BK4</h2></li>
                 <li><h2>|</h2></li>
                 <li><a href='http://0.0.0.0:8000/'>Home</a></li>
-                <li><a href='http://0.0.0.0:8000/sign_in'>Ssh manager</a></li>
+                <li><a href='http://0.0.0.0:8000/ssh_manager/sign_in'>Ssh manager</a></li>
                 <li><a href='http://0.0.0.0:8000/contact'>Contact</a></li>
             </ul>
         </nav>
@@ -21,11 +21,7 @@
     <section class="hero">
         <div class="hero-content-area">
             <div class="inner-screen">
-                <form method="post">
-                  {% csrf_token %}
-                  {{ form.as_p }}
-                  <button type="submit" class="btn">SIGN IN</button>
-                </form>
+                <label> Hello</label>
             </div>
         </div>
     </section>
