@@ -9,32 +9,33 @@ from .forms import SignInForm, SignUpForm, SSHConnectionForm
 
 
 def sign_in(request):
-    if request.user.is_authenticated:
-        if request.method == 'GET':
-            form = SignInForm()
-            return render(request, 'sign_in.html', {'form': form})
-
-        elif request.method == 'POST':
-            form = SignInForm(request.POST)
-
-            if form.is_valid():
-                username = form.cleaned_data['username']
-                password = form.cleaned_data['password']
-                user = authenticate(request, username=username, password=password)
-                if user:
-                    login(request, user)
-                    return 'True'
-
-            messages.error(request, f'Invalid username or password')
-            return render(request, 'sign_in.html', {'form': form})
-    else:
-        return render(request, 'error.html', {'error': 'You are logged in'})
+    return render(request, 'sign_in.html')
+    # if request.user.is_authenticated:
+    #     if request.method == 'GET':
+    #         form = SignInForm()
+    #         return render(request, 'sign_in.html', {'form': form})
+    #
+    #     elif request.method == 'POST':
+    #         form = SignInForm(request.POST)
+    #
+    #         if form.is_valid():
+    #             username = form.cleaned_data['username']
+    #             password = form.cleaned_data['password']
+    #             user = authenticate(request, username=username, password=password)
+    #             if user:
+    #                 login(request, user)
+    #                 return 'True'
+    #
+    #         messages.error(request, f'Invalid username or password')
+    #         return render(request, 'sign_in.html', {'form': form})
+    # else:
+    #     return render(request, 'error.html', {'error': 'You are logged in'})
 
 
 @login_required
 def sign_out(request):
     logout(request)
-    return redirect('login')
+    return redirect('sign_in')
 
 
 def sign_up(request):
