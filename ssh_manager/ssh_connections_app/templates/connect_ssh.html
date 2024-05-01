@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSH Connection</title>
+</head>
+<body>
+    <h1>Connecting to SSH Server</h1>
+    <p>Host: <input id="host" type="text" value="localhost"></p>
+    <p>Port: <input id="port" type="number" value="22"></p>
+    <p>Username: <input id="username" type="text" value="your_username"></p>
+    <p>Password: <input id="password" type="password" value="your_password"></p>
+
+    <button id="connect">Connect</button>
+    <button id="send">Send Command</button>
+    <textarea id="output"></textarea>
+
+    <script>
+        const socket = new WebSocket('ws://0.0.0.0:8001/ssh');
+
+        document.getElementById('connect').addEventListener('click', () => {
+            const host = document.getElementById('host').value;
+            const port = document.getElementById('port').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            socket.send(`connect ${host} ${port} ${username} ${password}`);
+        });
+
+        document.getElementById('send').addEventListener('click', () => {
+            const command = prompt('Enter command:');
+            socket.send(command);
+        });
+
+        socket.onmessage = (event) => {
+            const outputDiv = document.getElementById('output');
+            outputDiv.value += event.data + '\n';
+        };
+
+        socket.onopen = () => {
+            console.log('Connected to SSH server');
+        };
+
+        socket.onerror = (event) => {
+            console.error('Error occurred:', event);
+        };
+
+        socket.onclose = () => {
+            console.log('Disconnected from SSH server');
+        };
+    </script>
+</body>
+</html>

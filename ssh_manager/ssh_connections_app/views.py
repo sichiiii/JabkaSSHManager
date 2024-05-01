@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
-
+from .connections_manager import ssh_client
 
 from .forms import SignInForm, SignUpForm, SSHConnectionForm
 
@@ -77,6 +77,19 @@ def edit_ssh_connection(request):
 @login_required
 def delete_ssh_connection(request):
     return render(request, 'delete_ssh_connection.html')
+
+def connect_ssh(request):
+    host = request.GET.get('host')
+    port = request.GET.get('port')
+    username = request.GET.get('username')
+    password = request.GET.get('password')
+
+    return render(request, 'connect_ssh.html', {
+        'host': host,
+        'port': port,
+        'username': username,
+        'password': password
+    })
 
 
 @login_required

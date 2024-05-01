@@ -10,7 +10,7 @@ services:
       - POSTGRES_USER=jabka
       - POSTGRES_PASSWORD=test123
       - POSTGRES_PORT=5432
-    ports:  # for pgadmin
+    ports:
       - "5432:5432"
     expose:
       - 5432
@@ -27,6 +27,20 @@ services:
       - POSTGRES_PORT=5432
     depends_on:
       - db
+  ssh_micro_service:
+    build: ssh_micro_service/
+    ports:
+      - "8001:8001"
+    restart: always
+    environment:
+      - POSTGRES_DB=ssh_manager_db
+      - POSTGRES_USER=jabka
+      - POSTGRES_PASSWORD=test123
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+    depends_on:
+      - db
+
 networks:
   default:
     name: postgre-service_default
